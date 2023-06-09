@@ -1,0 +1,27 @@
+<script>
+
+    var ws = new WebSocket("ws://172.16.188.149:8000/test")
+
+    let data = `{"Id":78912,"Customer":"Jason Sweet","Nile":"And"}`; //50 Bytes
+    var i = 0;
+    document.getElementById("test").innerHTML = i;
+
+   
+</script>
+
+
+<button onclick="handleOnClickWS()">WebSocket</button>
+<button onclick="handleOnClickAPI()">API</button>
+<input type="number" id="Breaks" placeholder="">
+<button onclick="set()">SET</button>
+<p id="test"></p>
+<script>
+    set = () => {
+       i=document.getElementById("Breaks").value;
+       document.getElementById("test").innerHTML = i;
+   }
+   handleOnClickWS = () => {
+       for (let j = 0; j < i; j++) {
+           ws.send(data);}
+   }
+</script>
